@@ -1,0 +1,35 @@
+server:
+  port:8081
+
+# database 연동 설정
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/library?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: "root"
+    password: "Aa949841!"
+  thymeleaf:
+    cache: false
+
+  # spring data jpa 설정
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    open-in-view: false
+    #show-sql: true
+    hibernate:
+      ddl-auto: none
+
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        #dialect: org.hibernate.dialect.MYSQL8Dialect
+
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
